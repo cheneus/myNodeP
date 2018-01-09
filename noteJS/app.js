@@ -1,12 +1,42 @@
 console.log('starting app');
 
-const _ = require('lodash')
 const fs = require('fs');
-const yargs = require('yargs')
-const notes = require('./notes.js')
+const _ = require('lodash');
+const yargs = require('yargs');
 
-const argv = yargs.argv
-var command = process.argv[2];
+const notes = require('./notes.js');
+
+const optArg =  {
+    title: {
+      describe : 'Title of the note',
+      demand : true,
+      alias: 't'
+    },
+    body: {
+      describe: 'Title of the note',
+      demand: true,
+      alias: 'b'
+    }
+}  
+
+const argv = yargs
+// http://yargs.js.org/docs/#api-commandcmd-desc-builder-handler
+  .command('add' , 'add a title and a body', {
+    // tell you what u need to complete the command
+    title: optArg.title,
+    body: optArg.body
+  })
+  .command('list', 'list all notes')
+  .command('read', 'read an individual note', {
+    title: optArg.title
+  })
+  .command('remove', 'remove a note', {
+     title: optArg.title
+  })
+  .help()
+  .argv;
+
+var command = argv._[0];
 
 if (command === 'add') {
   // console.log("Adding new note")
