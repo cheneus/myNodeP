@@ -1,10 +1,11 @@
 # myNodeP
 This is a compilation of small node project for learning / component for future project
 
-# Debugging using 
+# Debugging using inspect / inspect-brk
 
 ```
 node inspect {file_name}
+node --inspect-brk {file_name} // uses chrome dev tool 
 ```
 **Commands for node inspect**
   - n for next
