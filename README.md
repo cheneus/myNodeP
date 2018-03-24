@@ -1,11 +1,12 @@
 # myNodeP
+This is a compilation of small node project for learning / component for future project
 
 # Debugging using 
 
 ```
 node inspect {file_name}
 ```
-** Commands for node inspect **
+**Commands for node inspect**
   - n for next
   - list(i); i being the line of code
     ```
